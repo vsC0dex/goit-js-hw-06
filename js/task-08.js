@@ -1,24 +1,21 @@
-const formEl = document.querySelector('form')
-const inputEl = document.querySelectorAll('label')
+const form = document.querySelector(".login-form");
 
-
-
-
-formEl.addEventListener('submit', onFormSubmit)
+form.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  if (formEl[0].value.length === 0 || formEl[1].value.length === 0) {
-    return alert('Enter email and password, please')
-  }
-  console.log('email:',event.currentTarget.elements.email.value);
-  console.log('password:',event.currentTarget.elements.password.value);
-  // const formData = new formData(event.currentTarget);
-  // console.log(formData);
-  // formData.forEach((email, password) => {
-  //   console.log(email);
-  //   console.log(password);
-  // });
-  formEl.reset()
-};
+  const mail = event.currentTarget.elements.email.value;
+  const password = event.currentTarget.elements.password.value;
 
+  if (mail === "" || password === "") {
+    return alert("Enter email and password, please");
+  }
+
+  const formData = {
+    mail,
+    password,
+  };
+
+  console.log(formData);
+  form.reset();
+}

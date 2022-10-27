@@ -1,14 +1,8 @@
-const categoriesQuantity = document.querySelector('#categories');
-// const item = document.querySelectorAll('.item')
-const item = categoriesQuantity.children
-// const itemsQuantity = document.querySelectorAll('.item');
-console.log("Number of categories:", categoriesQuantity.children.length);
+const items = document.querySelectorAll("li.item");
 
-console.log("Category:", item[0].firstElementChild.textContent);
-console.log("Elements:", item[0].lastElementChild.children.length);
+console.log("Number of categories:", items[0].parentElement.childElementCount);
 
-console.log("Category:", item[1].firstElementChild.textContent);
-console.log("Elements:", item[1].lastElementChild.children.length);
-
-console.log("Category:", item[2].firstElementChild.textContent);
-console.log("Elements:", item[2].lastElementChild.children.length);
+for (let elem of items) {
+  console.log(`Category: ${elem.firstElementChild.textContent}`);
+  console.log(`Elements: ${elem.lastElementChild.children.length}`);
+}

@@ -1,15 +1,13 @@
-const inputRef = document.querySelector('#validation-input');
-const correctInputLength = document.querySelector('[data-length]')
-const coorectInputLengthToNumber = Number(correctInputLength.attributes[2].textContent)
+const inputValidEl = document.querySelector("#validation-input");
 
+inputValidEl.addEventListener("blur", onInputBlur);
 
-inputRef.addEventListener('blur', () => {
-  if (inputRef.value.length === coorectInputLengthToNumber) {
-    inputRef.classList.remove('invalid');
-    return inputRef.classList.add('valid');
-  } else {
-    inputRef.classList.remove('valid');
-    return inputRef.classList.add('invalid')
-  }
-});
+function onInputBlur(event) {
+  inputValidEl.classList.remove("valid");
+  inputValidEl.classList.remove("invalid");
+  const value = `${event.currentTarget.value}`.trim();
 
+  if (value.length === 6) {
+    inputValidEl.classList.add("valid");
+  } else inputValidEl.classList.add("invalid");
+}
