@@ -6,8 +6,9 @@ function onInputBlur(event) {
   inputValidEl.classList.remove("valid");
   inputValidEl.classList.remove("invalid");
   const value = `${event.currentTarget.value}`.trim();
+  const quantity = Number(inputValidEl.dataset.length);
 
-  if (value.length === 6) {
+  if (value.length === quantity) {
     inputValidEl.classList.add("valid");
   } else inputValidEl.classList.add("invalid");
 }

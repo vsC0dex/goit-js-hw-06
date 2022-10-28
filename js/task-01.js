@@ -1,8 +1,8 @@
 const items = document.querySelectorAll("li.item");
 
-console.log("Number of categories:", items[0].parentElement.childElementCount);
+console.log(`Number of categories: ${items.length}`);
 
-for (let elem of items) {
-  console.log(`Category: ${elem.firstElementChild.textContent}`);
-  console.log(`Elements: ${elem.lastElementChild.children.length}`);
-}
+items.forEach((element) => {
+  console.log(`Category: ${element.firstElementChild.textContent}`);
+  console.log(`Elements: ${element.lastElementChild.children.length}`);
+});
